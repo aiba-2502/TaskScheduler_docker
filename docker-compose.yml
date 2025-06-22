@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  scheduler:
+    build: .
+    container_name: python-script-scheduler
+    volumes:
+      # スクリプトディレクトリ
+      - ./scripts:/app/scripts
+      # 設定ファイル
+      - ./config:/app/config
+      # ログディレクトリ
+      - ./logs:/app/logs
+    environment:
+      - SCRIPTS_DIR=/app/scripts
+      - CONFIG_FILE=/app/config/scheduler.json
+      - TZ=Asia/Tokyo
+    restart: unless-stopped
+    # コンテナ内でrootユーザーとして実行（必要に応じて変更）
+    user: root

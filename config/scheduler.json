@@ -1,0 +1,24 @@
+{
+    "jobs": {
+      "aeon_test_1": {
+        "script_path": "billing_rollback_aeon.py",
+        "schedule_type": "date",
+        "schedule_config": {
+          "run_date": "2024-12-25 15:00:00"
+        },
+        "max_runs": 1,
+        "enabled": true,
+        "description": "指定日時に1回だけ実行"
+      },
+      "aeon_test_2": {
+        "script_path": "cancel_rollback_aeon.py",
+        "schedule_type": "date",
+        "schedule_config": {
+          "run_date": "2024-12-25 15:30:00"
+        },
+        "max_runs": 1,
+        "enabled": true,
+        "description": "指定日時に1回だけ実行"
+      }
+    }
+  }

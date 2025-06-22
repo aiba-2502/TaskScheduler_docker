@@ -1,0 +1,67 @@
+{
+    "jobs": {
+      "daily_report": {
+        "script_path": "daily_report.py",
+        "schedule_type": "cron",
+        "schedule_config": {
+          "hour": 9,
+          "minute": 0
+        },
+        "enabled": true,
+        "description": "毎日9:00に実行"
+      },
+      
+      "hourly_check": {
+        "script_path": "health_check.py",
+        "schedule_type": "interval",
+        "schedule_config": {
+          "hours": 1
+        },
+        "max_runs": 24,
+        "enabled": true,
+        "description": "1時間ごとに実行（最大24回）"
+      },
+      
+      "data_sync": {
+        "script_path": "data_sync.py",
+        "schedule_type": "interval",
+        "schedule_config": {
+          "minutes": 30
+        },
+        "enabled": true,
+        "description": "30分ごとに実行"
+      },
+      
+      "one_time_task": {
+        "script_path": "migration.py",
+        "schedule_type": "date",
+        "schedule_config": {
+          "run_date": "2024-12-25 15:30:00"
+        },
+        "max_runs": 1,
+        "enabled": true,
+        "description": "指定日時に1回だけ実行"
+      },
+      
+      "limited_task": {
+        "script_path": "cleanup.py",
+        "schedule_type": "interval",
+        "schedule_config": {
+          "days": 1
+        },
+        "max_runs": 7,
+        "enabled": true,
+        "description": "毎日実行（最大7回）"
+      },
+      
+      "disabled_job": {
+        "script_path": "test.py",
+        "schedule_type": "interval",
+        "schedule_config": {
+          "seconds": 10
+        },
+        "enabled": false,
+        "description": "無効化されたジョブ"
+      }
+    }
+  }
